@@ -1,7 +1,7 @@
 /*
  *  객체지향 프로그래밍
  *	    1. 클래스, 생성자, 메서드
- *			2) 상속 - 프로토타입 기반 ( 객체 리터럴 )
+ *			2) 상속 - 프로토타입 기반 ( 자식 오브젝트에 메서드 추가 )
  */
 
 function create_object ( obj ) {
@@ -23,12 +23,18 @@ var person  = {
 
 
 var you = create_object ( person );
-var me = Object.create ( person );
 
-console.log ( you.getName() );
+you.setAge = function ( age ) {
+    this.age = age;
+};
 
-you.setName ( 'merry' );
-console.log ( you.getName() );
+you.getAge = function ( age ) {
+    return this.age;
+}
+
+console.log ( you.getAge() );
+
+you.setAge ( 32 );
+console.log ( you.getAge() );
 
 console.dir ( you );
-console.dir ( me );
