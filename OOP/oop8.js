@@ -27,15 +27,12 @@ function Student () {
 
 /* 인스턴스 생성 */
 var you = new Person ( 'zzoon' );
-console.dir ( you );
 
 // 자식과 부모가 종속적임. 독립적으로 나누기 위해서 중간에 더미객체를 두게 된다
 Student.prototype = you;
 
 var me = new Student ( 'merry' );
 console.log ( me.getName() );
-console.dir ( me );
-
 
 // 자식의 프로토타입에 메서드 추가 부모가 훼손됨
 Student.prototype.getAge = function () {
