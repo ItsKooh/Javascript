@@ -35,7 +35,7 @@ var subClass = function ( obj ) {
 
     for ( prop in obj ) {
         if ( obj.hasOwnProperty(prop) ) {
-            child[prop] = obj[prop];
+            child.prototype[prop] = obj[prop];
         }
     }
 
@@ -73,10 +73,10 @@ var Parent = subClass ( parentObj );
 var parent = new Parent();
 console.dir ( parent );
 parent.setName ( 'zzoon' );
-//console.log ( parent.getName() );
+console.log ( parent.getName() );
 
 var Child = Parent.subClass ( childObj );
 var child = new Child();
 console.dir ( child );
-//child.setName ( 'merry' );
-//console.log ( child.getName() );
+child.setName ( 'merry' );
+console.log ( child.getName() );
